@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Microsoft.Bot.Builder.FormFlow;
 
 namespace SimpleBotFramework
 {
@@ -18,7 +19,8 @@ namespace SimpleBotFramework
         {
             if (activity.GetActivityType() == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new Dialogs.PromptDemo());
+                //await Conversation.SendAsync(activity, () => new Dialogs.PromptDemo());
+                await Conversation.SendAsync(activity, MakeDialog);
             }
             else
             {
@@ -28,6 +30,10 @@ namespace SimpleBotFramework
             return response;
         }
 
+        private IDialog<Dialogs.Formflowdemo> MakeDialog()
+        {
+            return Chain.From(() => FormDialog.FromForm(Dialogs.Formflowdemo.GetForm));
+        }
         private Activity HandleSystemMessage(Activity message)
         {
             string messageType = message.GetActivityType();

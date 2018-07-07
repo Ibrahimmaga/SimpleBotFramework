@@ -114,3 +114,4 @@ C:\Users\imaga\Desktop\BotFramework\SimpleBotFramework\SimpleBotFramework\obj\De
 C:\Users\imaga\Desktop\BotFramework\SimpleBotFramework\SimpleBotFramework\obj\Debug\SimpleBotFramework.csproj.CopyComplete
 C:\Users\imaga\Desktop\BotFramework\SimpleBotFramework\SimpleBotFramework\obj\Debug\SimpleBotFramework.dll
 C:\Users\imaga\Desktop\BotFramework\SimpleBotFramework\SimpleBotFramework\obj\Debug\SimpleBotFramework.pdb
+C:\Users\imaga\Desktop\BotFramework\SimpleBotFramework\SimpleBotFramework\obj\Debug\SimpleBotFramework.csprojAssemblyReference.cache
