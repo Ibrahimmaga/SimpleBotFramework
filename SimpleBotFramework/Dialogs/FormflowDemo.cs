@@ -19,6 +19,7 @@ namespace SimpleBotFramework.Dialogs
     }
     public enum Processor
     {
+        [Describe("Intel Core I3")]
         IntelI3, IntelI5, IntelI7, IntelCore, AMD
     }
     public enum OperatingSystem
@@ -30,17 +31,30 @@ namespace SimpleBotFramework.Dialogs
     public class Formflowdemo
     {
         public LaptopType? LaptopType;
-        public Laptopbrand? Laptpbrand;
+
+        [Optional]
+        [Describe(description:"Company", title:"Laptop Brand", subTitle:"There are several other brand present for sales but not this one")]
+        public Laptopbrand? Laptopbrand;
         public OperatingSystem? OperatingSystem;
         public Processor? Processor;
 
+        [Describe("touch screen device !")]
+        [Prompt("Do you prefer {&}? {||}")]
         public bool? RequiresTouch;
+
+        [Numeric(2,12)]
+        [Describe(description:"Minimum Capacity of RAM")]
         public int? MinimumRamSize;
+
+        [Pattern(@"^[206]\d{9}$")]
+        public string MobileNumberAttribute;
 
         public static IForm<Formflowdemo> GetForm()
         {
             return new FormBuilder<Formflowdemo>()
                 .Message("welcome to Laptop suggestion Bot")
+                .Field(nameof(MobileNumberAttribute))
+                .AddRemainingFields()
                 .Build();
         }
    
